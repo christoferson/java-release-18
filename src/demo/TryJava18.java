@@ -6,6 +6,10 @@ public class TryJava18 {
 		
 		System.out.println(formatterPatternSwitch(53));
 		System.out.println(formatterPatternSwitch(578L));
+		
+		testFooBar("Foo");
+		testFooBar("Zoo");
+		testFooBar(null);
 	}
 	
 	static String formatterPatternSwitch(Object o) {
@@ -16,6 +20,14 @@ public class TryJava18 {
 	        case String s  -> String.format("String %s", s);
 	        default        -> o.toString();
 	    };
+	}
+	
+	static void testFooBar(String s) {
+	    switch (s) {
+	        case null         -> System.out.println("Oops");
+	        case "Foo", "Bar" -> System.out.println("Great");
+	        default           -> System.out.println("Ok");
+	    }
 	}
 	
 }
